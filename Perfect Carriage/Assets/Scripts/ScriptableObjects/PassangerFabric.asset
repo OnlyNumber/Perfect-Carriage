@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19b6342e04b1894b924422d4470669c, type: 3}
+  m_Name: PassangerFabric
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 2411230383440810255, guid: 4eb99fdc0c883554fb676f34a5cb1f10, type: 3}
+  - {fileID: -219902580154385684, guid: fea6624da2a356548a2d88ce1eef0bc7, type: 3}
+  - {fileID: -2132700983236154024, guid: 26a7b1daf59154d4caf49789550cab39, type: 3}
+  - {fileID: -7320025076148463872, guid: ab3b64f3468a3cb4e8248ce85754d241, type: 3}
