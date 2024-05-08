@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
 
     public TMPro.TMP_Text _timerText;
 
-    public Image _timerBar;
-
     public List<int> info = new List<int>();
 
     public TrainController trainController;
@@ -22,7 +20,16 @@ public class GameManager : MonoBehaviour
 
     public PanelActivator ResultPanel;
 
-    public TMPro.TMP_Text ResultText;
+    public TMPro.TMP_Text RightText;
+
+    public TMPro.TMP_Text WrongText;
+
+    public TMPro.TMP_Text LimitText;
+
+    public TMPro.TMP_Text ThiefPercentageText;
+
+    public TMPro.TMP_Text RewardText;
+
 
     public float SumReward = 0;
 
@@ -47,7 +54,7 @@ public class GameManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
 
-            _timerText.text = System.TimeSpan.FromSeconds(currentTime).ToString("\\:mm\\:ss");
+            _timerText.text = System.TimeSpan.FromSeconds(currentTime).ToString("\\ mm\\:ss");
 
             if (currentTime <= 0)
             {
@@ -96,10 +103,11 @@ public class GameManager : MonoBehaviour
 
         }
 
-        ResultText.text += "Right passangers: " + RightPassangers + "\n \n";
-        ResultText.text += "Wrong passangers: " + WrongPassangers + "\n \n";
+        RightText.text = /*"Right passangers: "*/ "   " + RightPassangers + " right "/*+ "\n \n"*/;
 
-        ResultText.text += "Exceeding the limit passangers: " + GetExceedingLimitPassanger + "\n \n";
+        WrongText.text += /*"Wrong passangers: "+*/ "   " + WrongPassangers + " wrong"/*+ "\n \n"*/;
+
+        LimitText.text += /*"Exceeding the limit passangers: " +*/"   " + GetExceedingLimitPassanger + " out of limit " /*+ "\n \n"*/;
 
         float PenaltyPercentage = FreeRidersCount;
 
@@ -111,11 +119,9 @@ public class GameManager : MonoBehaviour
         }
 
 
-        ResultText.text += "Free riders: " + FreeRidersCount + " Penalty: " + PenaltyPercentage * 100 + "%"+  "\n \n";
+        ThiefPercentageText.text += /*"Free riders: " + FreeRidersCount + " Penalty: " +*/ "   " + PenaltyPercentage * 100 + "% penalty"/*+ "\n \n"*/;
 
-        ResultText.text += "Reward for game: " + (int)(SumReward * (1 - PenaltyPercentage)) + "\n \n";
-
-        Debug.Log(SumReward);
+        RewardText.text += /*"Reward for game: " + */"   " + (int)(SumReward * (1 - PenaltyPercentage)) + " coins" /*+ "\n \n"*/;
 
         DataController.Instance.CoinsChange((int)(SumReward * (1 - PenaltyPercentage)));
 
@@ -154,7 +160,7 @@ public class GameManager : MonoBehaviour
                 break;
             }
 
-            if (carriage.Passangers[i] != null && carriage.CarriageType <= carriage.Passangers[i].type)
+            if (carriage.Passangers[i] != null && carriage.CarriageType >= carriage.Passangers[i].type && carriage.Passangers[i].type != PassangerType.freeRider)
             {
                 SumReward += RewardPassangerType[carriage.Passangers[i].type] * carriage.CostPassangerIncreacer;
                 rightPassangers++;
@@ -174,7 +180,7 @@ public class GameManager : MonoBehaviour
                 break;
             }
 
-            if (carriage.Passangers[i] != null && carriage.CarriageType != carriage.Passangers[i].type)
+            if (carriage.Passangers[i] != null && carriage.CarriageType < carriage.Passangers[i].type || carriage.Passangers[i].type == PassangerType.freeRider)
             {
                 wrongPassangers++;
             }

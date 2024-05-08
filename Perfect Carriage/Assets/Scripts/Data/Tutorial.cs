@@ -8,7 +8,15 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        DataController.Instance.OnDataLoaded += Initialize;
+        if (DataController.Instance.IsLoaded)
+        {
+            Initialize();
+        }
+        else
+        {
+            DataController.Instance.OnDataLoaded += Initialize;
+        }
+
     }
 
     public void Initialize()

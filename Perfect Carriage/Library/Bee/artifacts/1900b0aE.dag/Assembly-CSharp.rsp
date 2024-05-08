@@ -394,6 +394,7 @@
 "Assets/Scripts/Data/CarriageData.cs"
 "Assets/Scripts/Data/DataController.cs"
 "Assets/Scripts/Data/Tutorial.cs"
+"Assets/Scripts/FirstLoadingScreen.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/HandController.cs"
 "Assets/Scripts/JailManager.cs"

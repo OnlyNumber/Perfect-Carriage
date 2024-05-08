@@ -71,6 +71,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-Perfect Carriage\Library\PackageCache\com.unity.burst@1.8.12\.Runtime\libburst-llvm-16.dylib
 Perfect Carriage/Library/PackageCache/com.unity.burst@1.8.12/.Runtime/libburst-llvm-10.dylib
 Perfect Carriage/Library/PackageCache/com.unity.burst@1.8.12/.Runtime/libburst-llvm-16.dylib
+Perfect Carriage/Temp
